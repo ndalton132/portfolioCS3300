@@ -65,12 +65,7 @@ group :test do
   gem 'simplecov', require: false
 end
 
-require 'simplecov'
-SimpleCov.start 'rails' do
-  add_filter '/bin/'
-  add_filter '/db/'
-  add_filter '/spec/' # for rspec
-end
+
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

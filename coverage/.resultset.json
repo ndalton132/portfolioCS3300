@@ -33,6 +33,7 @@
         "lines": [
           0,
           0,
+          0,
           null,
           null,
           0,
@@ -176,7 +177,7 @@
         }
       }
     },
-    "timestamp": 1681351093
+    "timestamp": 1681352075
   },
   "RSpec": {
     "coverage": {
@@ -193,6 +194,107 @@
       "/root/portfolioCS3300/app/models/application_record.rb": {
         "lines": [
           1,
+          1,
+          null
+        ]
+      },
+      "/root/portfolioCS3300/app/helpers/application_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/root/portfolioCS3300/app/helpers/projects_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/root/portfolioCS3300/app/controllers/projects_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          7,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "/root/portfolioCS3300/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/root/portfolioCS3300/app/models/project.rb": {
+        "lines": [
+          1,
+          null,
           1,
           null
         ]
@@ -217,106 +319,6 @@
         "branches": {
         }
       },
-      "/root/portfolioCS3300/app/controllers/application_controller.rb": {
-        "lines": [
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/root/portfolioCS3300/app/controllers/projects_controller.rb": {
-        "lines": [
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/root/portfolioCS3300/app/helpers/application_helper.rb": {
-        "lines": [
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/root/portfolioCS3300/app/helpers/projects_helper.rb": {
-        "lines": [
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
       "/root/portfolioCS3300/app/jobs/application_job.rb": {
         "lines": [
           0,
@@ -339,18 +341,8 @@
         ],
         "branches": {
         }
-      },
-      "/root/portfolioCS3300/app/models/project.rb": {
-        "lines": [
-          0,
-          null,
-          0,
-          0
-        ],
-        "branches": {
-        }
       }
     },
-    "timestamp": 1681351191
+    "timestamp": 1681353230
   }
 }
