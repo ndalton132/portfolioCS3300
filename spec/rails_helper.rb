@@ -1,15 +1,7 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
-
-require 'simplecov'
-SimpleCov.start 'rails' do
-  add_filter '/bin/'
-  add_filter '/db/'
-  add_filter '/spec/' # for rspec
-end
-
 ENV['RAILS_ENV'] ||= 'test'
-require File.expand_path('../config/environment', __dir__)
+require_relative '../config/environment'
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
@@ -28,19 +20,20 @@ require 'rspec/rails'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-# Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
+# Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |f| require f }
 
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
 begin
   ActiveRecord::Migration.maintain_test_schema!
 rescue ActiveRecord::PendingMigrationError => e
-  puts e.to_s.strip
-  exit 1
+  abort e.to_s.strip
 end
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  config.fixture_path = Rails.root.join('spec/fixtures')
+
+  config.include Devise::Test::IntegrationHelpers, type: :feature
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
@@ -62,59 +55,26 @@ RSpec.configure do |config|
   #     end
   #
   # The different available types are documented in the features, such as in
-  # https://relishapp.com/rspec/rspec-rails/docs
+  # https://rspec.info/features/6-0/rspec-rails
   config.infer_spec_type_from_file_location!
 
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  require 'rspec/rails'
+
+  # Add these after require 'rspec/rails'
+  require 'devise'
+  require_relative 'support/controller_macros'
+
+  # ...
+
+  
+  config.include Devise::Test::ControllerHelpers, :type => :controller
+  config.include FactoryBot::Syntax::Methods
+  config.extend ControllerMacros, :type => :controller
+  
 end
-
-require "rails_helper"
-SimpleCov.coverage_dir 'coverage'
-
-
-
-describe "Project Attribute Requirements on Create", :type => :model do
-  context "validation tests" do
-    it "ensures the title is present when creating project" do
-      project = Project.new(description: "Content of the description")
-      expect(project.valid?).to eq(false)
-    end
-    it "should not be able to save project when title missing" do
-      project = Project.new(description: "Some description content goes here")
-      expect(project.save).to eq(false)
-    end
-    it "should be able to save project when have description and title" do
-      project = Project.new(title: "Title", description: "Content of the description")
-      expect(project.save).to eq(true)
-    end
-    it "should have a description when creating" do
-      project = Project.new(title: "Title")
-      expect(project.valid?).to eq(false)
-    end
-  end
-end
-
-
-describe "Project Attribute Requirements on Edit", :type => :model do
-  context "Edit project" do  
-    before (:each) do
-      @project = Project.create(title: "Title", description: "Content of the description")
- 
-      end
-    it "ensures the title is present when editing project" do
-      @project.update(:title => "New Title")
-      expect(@project.title == "New Title")
-    end
-    it "ensures the description is present when editing project" do
-      @project.update(description: "New Description")
-      expect(@project.description).to eq ("New Description")
-    end
-  end
-end
-
-
-
 

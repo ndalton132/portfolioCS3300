@@ -37,12 +37,20 @@ group :production do
  end
  
 
+
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem "sqlite3", "~> 1.4"
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rspec-rails', '~> 4.1.0'
+  #gem 'rspec-rails', '~> 4.1.0'
+
+   # There may be other lines in this block already. Simply append the following after:
+   %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
+    gem lib, git: "https://github.com/rspec/#{lib}.git", branch: 'main'
+   end
+
 end
 
 group :development do
@@ -63,9 +71,10 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
   gem 'simplecov', require: false
+  gem 'factory_bot_rails'
+  gem 'pry-rails'
+  gem 'faker'
 end
-
-
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

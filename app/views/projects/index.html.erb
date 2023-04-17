@@ -16,9 +16,15 @@
       <tr>
         <td><%= project.title %></td>
         <td><%= project.description %></td>
+
+        <% if user_signed_in? %>
         <td><%= link_to 'Show', project %></td>
+        <% end %>  
+
         <td><%= link_to 'Edit', edit_project_path(project) %></td>
         <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
+
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +32,6 @@
 
 <br>
 
+<% if user_signed_in? %>
 <%= link_to 'New Project', new_project_path %>
+<% end %>  
